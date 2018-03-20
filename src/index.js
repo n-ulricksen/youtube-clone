@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import SearchBar from './components/SearchBar';
-import VideoList from './components/VideoList';
-import VideoDetail from './components/VideoDetail';
-import YTSearch from 'youtube-api-search';
+import ReactDOM             from 'react-dom';
+import YTSearch             from 'youtube-api-search';
+import _                    from 'lodash';
+import SearchBar            from './components/SearchBar';
+import VideoList            from './components/VideoList';
+import VideoDetail          from './components/VideoDetail';
 
 const API_KEY = 'AIzaSyBqmDNVwkjxp7QjFFilBw4zC8XYNm0fWHY';
 
@@ -15,6 +16,7 @@ class App extends Component {
             videos: [],
             selectedVideo: null
         };
+
         this.videoSearch('skateboards');
     }
 
@@ -28,11 +30,11 @@ class App extends Component {
     }
 
     render() {
-        console.log(this.state); // console video response
+        const videoSearch = _.debounce((term) => { this.videoSearch(term) }, 300);
 
         return(
             <div>
-                <SearchBar onSearchTermChange={this.videoSearch}/>
+                <SearchBar onSearchTermChange={videoSearch} />
                 <VideoDetail selectedVideo={this.state.selectedVideo} />
                 <VideoList 
                     onVideoSelect={selectedVideo => this.setState({selectedVideo})}
