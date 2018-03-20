@@ -2,9 +2,13 @@ import React from 'react';
 import YoutubePlayer from 'react-youtube-player';
 
 const VideoDetail = ({ selectedVideo }) => {
+    // Check to see that videos were loaded from ajax request before trying
+    // to display to DOM
     if(!selectedVideo) {
         return <div>Loading..</div>;
     }
+    
+    // Data pulled from selectedVideo to display to user
     const videoId = selectedVideo.id.videoId;
     const videoTitle = selectedVideo.snippet.title;
     const videoDescription = selectedVideo.snippet.description;

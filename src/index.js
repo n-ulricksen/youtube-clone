@@ -12,14 +12,18 @@ class App extends Component {
     constructor(props) {
         super(props);
 
+        // App state will keep track of a list of videos and a selected video
         this.state = {
             videos: [],
             selectedVideo: null
         };
 
+        // Fire off initial search to fill state
         this.videoSearch('skateboards');
     }
 
+    // Function for searching YouTube and updating state with 
+    // a list of videos and a selected video
     videoSearch(term) {
         YTSearch({key: API_KEY, term: term}, videos => {
             this.setState({
@@ -30,6 +34,7 @@ class App extends Component {
     }
 
     render() {
+        // Throttle videoSearch function to only be called every 300ms
         const videoSearch = _.debounce((term) => { this.videoSearch(term) }, 300);
 
         return(
@@ -44,4 +49,5 @@ class App extends Component {
     }
 }
 
+// Render app to .container in index.html
 ReactDOM.render(<App />, document.querySelector('.container'));
