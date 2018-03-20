@@ -1,3 +1,7 @@
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
 .search-bar input {
     width: 70%;
 }
@@ -12,6 +16,10 @@
     border-radius: 4px;
     padding: 10px;
     margin-top: 10px;
+}
+
+.video-detail .details .title {
+    font-size: 1.3em;
 }
 
 .video-list-item {

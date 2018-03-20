@@ -24,7 +24,7 @@ const VideoDetail = ({ selectedVideo }) => {
                 />
             </div>
             <div className="details">
-                <div>{videoTitle}</div>
+                <div className="title">{videoTitle}</div>
                 <div>{videoDescription}</div>
             </div>
         </div>
