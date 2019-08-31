@@ -6,7 +6,7 @@ Interested in learning [Redux](https://www.udemy.com/react-redux/)?
 
 ``` 
 > git clone https://github.com/ulricksennick/YouTube-Clone
-> cd YouTube-Clone2
+> cd YouTube-Clone
 > npm install
 > npm start
 ```
